@@ -25,7 +25,7 @@ $sendgrid = new \SendGrid($key);
 // $sendgrid = new \SendGrid($apiKey);
 
 
-// NOTE: STILL HAS ERROR, WRONG CREDENTIALS
+
 try {
     $response = $sendgrid->send($email);
     //$response = $sendgrid->client->_("suppression/bounces")->get();
