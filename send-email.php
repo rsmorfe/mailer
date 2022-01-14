@@ -17,14 +17,18 @@ $email->addContent(
     "text/html", "<strong>Congratulations! This is a sample message</strong>"
 );
 
-//$sendgrid = new \SendGrid(getenv('SENDGRID_API_KEY'));
+$key = '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';
+$sendgrid = new \SendGrid($key);
+// $sendgrid = new \SendGrid(getenv('SENDGRID_API_KEY'));
 
-$apiKey = getenv('SENDGRID_API_KEY');
-$sendgrid = new \SendGrid($apiKey);
+// $apiKey = getenv('SENDGRID_API_KEY');
+// $sendgrid = new \SendGrid($apiKey);
 
+
+// NOTE: STILL HAS ERROR, WRONG CREDENTIALS
 try {
-    //$response = $sendgrid->send($email);
-    $response = $sendgrid->client->_("suppression/bounces")->get();
+    $response = $sendgrid->send($email);
+    //$response = $sendgrid->client->_("suppression/bounces")->get();
     print $response->statusCode() . "\n";
     print_r($response->headers());
     print $response->body() . "\n";
