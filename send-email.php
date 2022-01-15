@@ -17,7 +17,7 @@ $email->addContent(
     "text/html", "<strong>Congratulations! This is a sample message</strong>"
 );
 
-$key = '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';
+$key = getenv('SENDGRID_API_KEY');
 $sendgrid = new \SendGrid($key);
 // $sendgrid = new \SendGrid(getenv('SENDGRID_API_KEY'));
 
