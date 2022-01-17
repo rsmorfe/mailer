@@ -17,13 +17,14 @@
         "text/html", "<strong>Congratulations! This is a sample message</strong>"
     );
 
-    $key = getenv('SENDGRID_API_KEY', true) ?: getenv('SENDGRID_API_KEY');
+    $key = getenv('SENDGRID_API_KEY', true) ?: $_SERVER['SENDGRID_API_KEY'];
     $sendgrid = new \SendGrid($key);
+    // $sendgrid = new \SendGrid($key);
     // $sendgrid = new \SendGrid(getenv('SENDGRID_API_KEY'));
 
     echo "TESTING...\n";
-    echo(getenv('SENDGRID_API_KEY') ?: "ERROR LOADING API KEY \n");
-
+    // getenv('REMOTE_ADDR') ?: print_r($_SERVER['SENDGRID_API_KEY']);
+    // echo "\n";
 
     try {
         $response = $sendgrid->send($email);
